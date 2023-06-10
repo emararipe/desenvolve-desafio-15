@@ -1,8 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Home from './pages/home'
-import Cadastro from './pages/cadastro'
-import Lista from './pages/lista'
 import Header from './components/header'
+import Footer from './components/footer'
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -10,16 +7,11 @@ type LayoutProps = {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <Router>
-      <Header />
-        <main>{children}</main>
-      {/* <Footer /> */}
-      <Routes>
-        <Route path="/" Component={Home} />
-        <Route path="/cadastro" Component={Cadastro} />
-        <Route path="/lista" Component={Lista} />
-      </Routes>
-    </Router>
+    <div>
+        <Header />
+          <main>{children}</main>
+        <Footer />
+    </div>
   )
 }
 

@@ -9,8 +9,8 @@ function Header() {
           <Link to='/'>.Pessoas</Link>
         </div>
         <ul className='menu-nav'>
-          <li><Link to='/cadastro'></Link></li>
-          <li><Link to='/lista'></Link></li>
+          <li><Link to='/cadastro'>Cadastro</Link></li>
+          <li><Link to='/lista'>Lista</Link></li>
         </ul>
       </nav>      
     </header>
