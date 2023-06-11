@@ -7,15 +7,19 @@ header{
 
 .logo{
   font-size:40px;
-  font-weight: bold;
+  font-weight: 700;
   font-family: 'Urbanist', sans-serif;
   text-decoration: none;
   color: var(--branco);
 }
 
-span{
-  font-weight: 900;
-  font-family: 'Urbanist', sans-serif;
+.logo:hover{
+  text-shadow: -2px 2px 2px rgba(218, 153, 74, 0.242);
+}
+
+.destaque-logo{
+  font-size: 28px;
+  font-family: 'Gasoek One', sans-serif;
   color: var(--destaque-logo);
 }
 
@@ -23,7 +27,7 @@ span{
 /* Nav */
 
 nav{
-  width: 1084px;
+  width: var(--content-range);
   height: 80px; /* é o mesmo do header */
   margin: 0 auto;
 
@@ -41,19 +45,19 @@ nav{
 }
 
 .menu-nav li{
-  background: var(--destaque-primario-suave);
   width: 164px;
   text-align: center;
+  background: var(--destaque-primario-suave);
 }
 
 .menu-nav li:hover{
-  background: var(--destaque-primario);
+  background: var(--destaque-primario-medio);
 }
 
 .menu-nav-opcao{
   font-size: 24px;
   line-height: 80px;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
   color: var(--branco);
 }

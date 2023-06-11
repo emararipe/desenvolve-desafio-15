@@ -6,7 +6,7 @@ function Header() {
     <header>
       <nav>
         <div className='logo-principal'>
-          <Link className='logo' to='/'><span>.</span>Pessoas</Link>
+          <Link className='logo' to='/'><span className='destaque-logo'>. </span>Pessoas</Link>
         </div>
         <ul className='menu-nav'>
           <li><Link className='menu-nav-opcao' to='/cadastro'>Cadastro</Link></li>

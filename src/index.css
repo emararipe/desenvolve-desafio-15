@@ -1,14 +1,16 @@
 :root {
   --branco:#FDF9F9;
-  --destaque-logo: #AA19B0;
+  --destaque-logo: #ab19b0;
 
-  --fundo-primario: #BFA07B;
+  --fundo-primario: #b69163;
   --fundo-secundario: #DEC8AE;
   --fundo-secundario-destaque: #E9DBCA;
   --fundo-detalhe: #EBD5D7;
 
-  --destaque-primario:#b0885a;
-  --destaque-primario-suave: #BA976F;
+  --destaque-primario: #9f7443;
+  --destaque-primario-suave: #b28754;
+  --destaque-primario-medio: #A27137;
+  --destaque-primario-forte: #66344d;
   --destaque-secundario: #A26479;
 
   --texto-padrao: #894A5F;
@@ -32,9 +34,3 @@ padding: 0;
 margin: 0;
 font-family: var(--fonte-principal);
 }
-
-/* .container{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */

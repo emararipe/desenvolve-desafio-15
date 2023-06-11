@@ -3,3 +3,31 @@ footer{
   height: 200px;
   width: 100%;
 }
+
+.rodape{
+  width: var(--content-range);
+  margin: 0 auto;
+  padding-top: 66px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  color: var(--footer-texto);
+}
+.rodape p:first-child{
+  width: 440px
+}
+
+.footer-texto{
+  font-size: 16px;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.footer-logo{
+  font-size: 40px;
+  font-weight: 700;
+  font-family: 'Urbanist', sans-serif;
+}
+

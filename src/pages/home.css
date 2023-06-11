@@ -1,3 +1,83 @@
 .main {
-  height: 50vw;
+  background: linear-gradient(-35deg, #7B2976, #946E36, #7B2976, #946E36);
+	background-size: 1300% 200%;
+	animation: gradient 10s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero{
+  width: var(--content-range);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  
+  color: var(--branco);
+  
+  position: relative;
+  top: 192px;
+}
+
+.chamada-hero{
+  width: 436px;
+  
+  font-size: 120px;
+  font-weight: 900;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.hero-texto{
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 40px;
+
+  font-weight: 500;
+  font-size: 20px;
+
+  margin-bottom: 28px;
+}
+
+.destaque-texto-hero{
+  font-family: 'Urbanist', sans-serif;
+}
+
+.hero-botoes{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-between;
+  gap: 24px;
+} 
+
+.hero-botao{
+  background: var(--destaque-primario);
+  border-radius: 32px;
+  height: 112px;
+  width: 300px;
+  padding: 10% 0;
+
+  display: inline-block;
+
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--branco);
+}
+
+.hero-botao:hover{
+  background: var(--destaque-primario-forte)
 }
