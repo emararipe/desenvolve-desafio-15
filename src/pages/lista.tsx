@@ -1,9 +1,12 @@
 import React from 'react'
+import Layout from '../Layout'
 
 function Lista() {
   return (
-    <div>Lista</div>
-  )
+    <Layout>
+       <div>Lista teste</div>
+    </Layout>
+   )
 }
 
 export default Lista

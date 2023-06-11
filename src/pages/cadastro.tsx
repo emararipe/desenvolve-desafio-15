@@ -1,9 +1,12 @@
 import React from 'react'
+import Layout from '../Layout'
 
 function Cadastro() {
   return (
-    <div>Cadastro</div>
-  )
+    <Layout>
+       <div>Cadastro teste</div>
+    </Layout>
+   )
 }
 
 export default Cadastro

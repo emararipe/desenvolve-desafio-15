@@ -1,0 +1,59 @@
+/* Header */
+
+header{
+  background: var(--fundo-primario);
+  height: 80px;
+}
+
+.logo{
+  font-size:40px;
+  font-weight: bold;
+  font-family: 'Urbanist', sans-serif;
+  text-decoration: none;
+  color: var(--branco);
+}
+
+span{
+  font-weight: 900;
+  font-family: 'Urbanist', sans-serif;
+  color: var(--destaque-logo);
+}
+
+
+/* Nav */
+
+nav{
+  width: 1084px;
+  height: 80px; /* é o mesmo do header */
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-nav{ 
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style: none;
+}
+
+.menu-nav li{
+  background: var(--destaque-primario-suave);
+  width: 164px;
+  text-align: center;
+}
+
+.menu-nav li:hover{
+  background: var(--destaque-primario);
+}
+
+.menu-nav-opcao{
+  font-size: 24px;
+  line-height: 80px;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--branco);
+}

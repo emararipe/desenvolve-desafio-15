@@ -1,9 +1,12 @@
 import React from 'react'
+import Layout from '../Layout'
 
 function Erro() {
   return (
-    <div>Erro</div>
-  )
+    <Layout>
+       <div>Erro teste</div>
+    </Layout>
+   )
 }
 
 export default Erro

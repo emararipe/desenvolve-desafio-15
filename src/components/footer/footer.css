@@ -1,0 +1,5 @@
+footer{
+  background: var(--footer-bg);
+  height: 200px;
+  width: 100%;
+}
