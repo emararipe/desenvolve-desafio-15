@@ -1,4 +1,4 @@
-.main {
+.main-home {
   background: linear-gradient(-35deg, #7B2976, #946E36, #7B2976, #946E36);
 	background-size: 1300% 200%;
 	animation: gradient 10s ease infinite;
@@ -18,25 +18,17 @@
 }
 
 .hero{
-  width: var(--content-range);
-  margin: 0 auto;
-
+  color: var(--branco);
+  padding-top: 20vh;
+  
   display: flex;
   flex-direction: row;
   gap: 24px;
-  
-  color: var(--branco);
-  
-  position: relative;
-  top: 192px;
+  justify-content: center;
 }
 
 .chamada-hero{
   width: 436px;
-  
-  font-size: 120px;
-  font-weight: 900;
-  font-family: 'Urbanist', sans-serif;
 }
 
 .hero-texto{
@@ -62,22 +54,3 @@
   justify-content: space-between;
   gap: 24px;
 } 
-
-.hero-botao{
-  background: var(--destaque-primario);
-  border-radius: 32px;
-  height: 112px;
-  width: 300px;
-  padding: 10% 0;
-
-  display: inline-block;
-
-  font-size: 24px;
-  font-weight: 600;
-  text-decoration: none;
-  color: var(--branco);
-}
-
-.hero-botao:hover{
-  background: var(--destaque-primario-forte)
-}

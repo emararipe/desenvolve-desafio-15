@@ -3,6 +3,7 @@
     "outDir": "src/dist/js",
     "target": "ES6",
     "module": "esnext",
+    "types": ["node"],
     "strict": true,
     "esModuleInterop": true,
     "removeComments": true,

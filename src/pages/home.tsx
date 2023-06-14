@@ -1,43 +1,48 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Layout from '../Layout'
+import { TituloHero } from '../components/titulos'
+import { BotaoHero } from '../components/botoes'
 import './home.css'
 
-function Home(){
-  
+function Home() {
+
   return (
-   <Layout>
-      <section className='main'>
-        <div className='hero'>
-          <h1 className='chamada-hero'>
-            Crie,<br/> 
-            Veja,<br/>
+    <Layout>
+      <section className='main-home'>
+        <div className='hero container'>
+          <TituloHero className='chamada-hero'>
+            Crie,<br />
+            Veja,<br />
             e Edite
-          </h1>
+          </TituloHero>
+
           <div className='hero-texto'>
             <p>
-              A melhor maneira de cadrastrar pessoas, visualizar e <br/>
-              controlar seus registros é com <span className='destaque-texto-hero'>.Pessoas</span>! 
-              <br/><br/> 
+              A melhor maneira de cadrastrar pessoas, visualizar e <br />
+              controlar seus registros é com <span className='destaque-texto-hero'>.Pessoas</span>!
+              <br /><br />
               Comece agora:
             </p>
+
             <div className='hero-botoes'>
-              <p>
-                <Link className='hero-botao' to='/cadastro'>
-                  Cadastrar <br/>
+              <Link to='/cadastro'>
+                <BotaoHero>
+                  Cadastrar <br />
                   novo usuário
-                </Link>
-              </p>
-              <p><Link className='hero-botao' to='/lista'>
-                  Ver lista de <br/>
+                </BotaoHero>
+              </Link>
+              <Link to='/lista'>
+                <BotaoHero>
+                  Ver lista de <br />
                   usuários
-                </Link>
-              </p>
+                </BotaoHero>
+              </Link>
             </div>
           </div>
         </div>
       </section>
-   </Layout>
+    </Layout>
   )
 }
 

@@ -1,0 +1,15 @@
+.main-cadastro {
+  background: var(--branco);
+	height: 100vh;
+}
+
+.paginas{
+  color: var(--texto-padrao);
+  padding-top: 7.25vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+ 

@@ -5,7 +5,8 @@ footer{
 }
 
 .rodape{
-  width: var(--content-range);
+  width: 100%;
+  max-width: var(--content-range);
   margin: 0 auto;
   padding-top: 66px;
 

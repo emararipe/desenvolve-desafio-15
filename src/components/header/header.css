@@ -3,6 +3,7 @@
 header{
   background: var(--fundo-primario);
   height: 80px;
+  padding-left: 24px;
 }
 
 .logo{
@@ -27,7 +28,8 @@ header{
 /* Nav */
 
 nav{
-  width: var(--content-range);
+  width: 100%;
+  max-width: var(--content-range);
   height: 80px; /* é o mesmo do header */
   margin: 0 auto;
 
