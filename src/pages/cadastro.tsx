@@ -1,4 +1,3 @@
-import React from 'react'
 import Layout from '../Layout'
 import { TituloPrincipal } from '../components/titulos'
 import FormularioCadastro from '../components/formulario-cadastro/formulario-cadastro'
@@ -11,7 +10,6 @@ function Cadastro() {
           <div className='paginas container'>
             <TituloPrincipal>Cadastro</TituloPrincipal>
             <FormularioCadastro tipo='cadastro' />
-          
           </div>
        </section>
     </Layout>

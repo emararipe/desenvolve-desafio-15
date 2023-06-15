@@ -1,11 +1,32 @@
 import { useState } from 'react'
 import { BotaoPadrao } from '../botoes'
+import ReactHtmlParser from 'react-html-parser'
 import DatePicker from 'react-datepicker'
 import './formulario-cadastro.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
 interface FormularioCadastroProps {
-  tipo: string;
+  tipo: ContentType;
+}
+
+type ContentValue = {
+  feedbackMessage: string,
+  buttonLabel: string
+}
+
+type ContentType = 'cadastro' | 'atualizacao'
+
+type Content = Record<ContentType, ContentValue>
+
+const content: Content = {
+  cadastro: {
+    feedbackMessage: 'Cadastro realizado com sucesso!<br>clique <b><a href="/">aqui</a></b> para visualizar sua lista de resultados.',
+    buttonLabel: 'Concluir cadastro'
+  },
+  atualizacao: {
+    feedbackMessage: 'Atualização realizada com sucesso!<br>Voltar para <a href="/">lista de registros</a>.',
+    buttonLabel: 'Concluir atualização'
+  }
 }
 
 function FormularioCadastro(props: FormularioCadastroProps) {
@@ -16,6 +37,7 @@ function FormularioCadastro(props: FormularioCadastroProps) {
   const handleDateChange = (date: Date | null) => {
     setDataNascimento(date ? date.toISOString() : '')
   }
+
   return (
     <form className='formulario-cadastro'>
       <input type='text' className='input-cadastro' placeholder='Nome'/>
@@ -26,8 +48,9 @@ function FormularioCadastro(props: FormularioCadastroProps) {
         onChange={handleDateChange}
         dateFormat='dd/MM/yyyy'
         placeholderText='Data de nascimento'/>
-      <BotaoPadrao>Concluir { tipo }</BotaoPadrao>
-
+      <BotaoPadrao>{ content[tipo].buttonLabel }</BotaoPadrao>
+      
+      <p className='texto-cadastro-aviso'>{ ReactHtmlParser(content[tipo].feedbackMessage) }</p>
     </form>
   )
 }

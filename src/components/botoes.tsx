@@ -22,7 +22,7 @@ export const BotaoHero = styled.button`
 `
 export const BotaoPadrao = styled(BotaoHero)`
   width: 346px;
-  height: 80px;
+
 `
 
 

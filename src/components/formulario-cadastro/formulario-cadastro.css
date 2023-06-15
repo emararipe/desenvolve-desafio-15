@@ -22,3 +22,15 @@
 .input-cadastro::placeholder{
   color: var(--texto-desfocado);
 }
+
+.texto-cadastro-aviso{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  
+  margin-top: -2em;
+}
+
+.texto-cadastro-aviso a{
+  color: var(--texto-padrao);
+}

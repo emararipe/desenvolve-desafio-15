@@ -1,6 +1,7 @@
 :root {
   --branco:#FDF9F9;
   --destaque-logo: #ab19b0;
+  --destaque-link: #df7a00;
 
   --fundo-primario: #b69163;
   --fundo-secundario: #DEC8AE;
@@ -51,4 +52,8 @@ font-family: var(--fonte-principal);
 
 ::-webkit-scrollbar-thumb {
   background: var(--destaque-primario-forte);
+}
+
+a:hover {
+  color:var(--destaque-link);
 }
