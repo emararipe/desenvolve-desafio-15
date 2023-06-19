@@ -1,12 +1,19 @@
-import React from 'react'
 import Layout from '../Layout'
+import { TituloPrincipalMenor } from '../components/titulos'
+import FormularioCadastro from '../components/formulario-cadastro/formulario-cadastro'
+import './cadastro-e-atualizacao.css'
 
-function AtualizacaoCadastro() {
+function Atualizacao() {
   return (
     <Layout>
-       <div>Atualização de dados teste</div>
+       <section className='main-cadastro'>
+          <div className='paginas container'>
+            <TituloPrincipalMenor>Atualização de dados</TituloPrincipalMenor>
+            <FormularioCadastro tipo='atualizacao' />
+          </div>
+       </section>
     </Layout>
    )
 }
 
-export default AtualizacaoCadastro
+export default Atualizacao
