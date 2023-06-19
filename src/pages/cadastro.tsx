@@ -6,14 +6,14 @@ import './cadastro-e-atualizacao.css'
 function Cadastro() {
   return (
     <Layout>
-       <section className='main-cadastro'>
-          <div className='paginas container'>
-            <TituloPrincipal>Cadastro</TituloPrincipal>
-            <FormularioCadastro tipo='cadastro' />
-          </div>
-       </section>
+      <section className='main-cadastro'>
+        <div className='paginas container'>
+          <TituloPrincipal>Cadastro</TituloPrincipal>
+          <FormularioCadastro tipo='cadastro' />
+        </div>
+      </section>
     </Layout>
-   )
+  )
 }
 
 export default Cadastro

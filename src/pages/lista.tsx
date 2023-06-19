@@ -8,14 +8,14 @@ function Lista() {
   return (
     <Layout>
       <section className='main-lista'>
-       <div className='paginas container'>
-          
+        <div className='paginas container'>
+
           <TituloPrincipal>Lista de usuários</TituloPrincipal>
-          <ListaPessoas/>
-       </div>
+          <ListaPessoas />
+        </div>
       </section>
     </Layout>
-   )
+  )
 }
 
 export default Lista

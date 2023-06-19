@@ -6,15 +6,15 @@ function ListaPessoas() {
   return (
     <table className='lista-pessoas'>
       <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Sobrenome</th>
-        <th>Data de nascimento</th>
-      </tr>
+        <tr>
+          <th>Nome</th>
+          <th>Sobrenome</th>
+          <th>Data de nascimento</th>
+        </tr>
       </thead>
       <tbody>
-        <CardPessoa/>
-        <CardPessoa/>
+        <CardPessoa />
+        <CardPessoa />
       </tbody>
     </table>
   )

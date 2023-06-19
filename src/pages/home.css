@@ -1,8 +1,8 @@
 .main-home {
-  background: linear-gradient(-35deg, #7B2976, #946E36, #7B2976, #946E36);
-	background-size: 1300% 200%;
-	animation: gradient 10s ease infinite;
-	height: 100vh;
+  background: linear-gradient(-35deg, #7b2976, #946e36, #7b2976, #946e36);
+  background-size: 1300% 200%;
+  animation: gradient 10s ease infinite;
+  height: 100vh;
 }
 
 @keyframes gradient {
@@ -17,21 +17,21 @@
   }
 }
 
-.hero{
+.hero {
   color: var(--branco);
   padding-top: 20vh;
-  
+
   display: flex;
   flex-direction: row;
   gap: 24px;
   justify-content: center;
 }
 
-.chamada-hero{
+.chamada-hero {
   inline-size: 3.5em;
 }
 
-.hero-texto{
+.hero-texto {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -43,14 +43,14 @@
   margin-bottom: 28px;
 }
 
-.destaque-texto-hero{
-  font-family: 'Urbanist', sans-serif;
+.destaque-texto-hero {
+  font-family: "Urbanist", sans-serif;
 }
 
-.hero-botoes{
+.hero-botoes {
   display: flex;
   flex-direction: row;
   text-align: center;
   justify-content: space-between;
   gap: 24px;
-} 
+}

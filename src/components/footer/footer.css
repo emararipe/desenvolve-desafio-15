@@ -1,10 +1,10 @@
-footer{
+footer {
   background: var(--footer-bg);
   height: 200px;
   width: 100%;
 }
 
-.rodape{
+.rodape {
   width: 100%;
   max-width: var(--content-range);
   margin: 0 auto;
@@ -16,19 +16,18 @@ footer{
 
   color: var(--footer-texto);
 }
-.rodape p:first-child{
-  width: 440px
+.rodape p:first-child {
+  width: 440px;
 }
 
-.footer-texto{
+.footer-texto {
   font-size: 1em;
   font-weight: 500;
   text-align: justify;
 }
 
-.footer-logo{
+.footer-logo {
   font-size: 2.5em;
   font-weight: 700;
-  font-family: 'Urbanist', sans-serif;
+  font-family: "Urbanist", sans-serif;
 }
-

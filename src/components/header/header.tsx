@@ -12,7 +12,7 @@ function Header() {
           <li><Link className='menu-nav-opcao' to='/cadastro'>Cadastro</Link></li>
           <li><Link className='menu-nav-opcao' to='/lista'>Lista</Link></li>
         </ul>
-      </nav>      
+      </nav>
     </header>
   )
 }

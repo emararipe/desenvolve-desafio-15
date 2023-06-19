@@ -26,4 +26,4 @@ export const TituloErro = styled.h1`
   font-family: var(--fonte-titulos-logo);
   color: var(--destaque-secundario);
   `
-    
+

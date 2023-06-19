@@ -6,14 +6,14 @@ import './cadastro-e-atualizacao.css'
 function Atualizacao() {
   return (
     <Layout>
-       <section className='main-cadastro'>
-          <div className='paginas container'>
-            <TituloPrincipalMenor>Atualização de dados</TituloPrincipalMenor>
-            <FormularioCadastro tipo='atualizacao' />
-          </div>
-       </section>
+      <section className='main-cadastro'>
+        <div className='paginas container'>
+          <TituloPrincipalMenor>Atualização de dados</TituloPrincipalMenor>
+          <FormularioCadastro tipo='atualizacao' />
+        </div>
+      </section>
     </Layout>
-   )
+  )
 }
 
 export default Atualizacao

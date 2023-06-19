@@ -1,4 +1,4 @@
-.main-erro{
+.main-erro {
   height: 100vh;
   background: var(--branco);
 }
@@ -13,29 +13,27 @@
 }
 
 .bg-erro {
-  background: linear-gradient(-35deg, #7B2976, #946E36, #7B2976, #946E36);
-	background-size: 1400% 200%;
-	animation: gradient 8s ease infinite;
-	height: 28rem;
+  background: linear-gradient(-35deg, #7b2976, #946e36, #7b2976, #946e36);
+  background-size: 1400% 200%;
+  animation: gradient 8s ease infinite;
+  height: 28rem;
   width: 27rem;
-  mask-image: url('../img/settings-gears-svgrepo-com.svg');
-  -webkit-mask-image: url('../img/settings-gears-svgrepo-com.svg');
+  mask-image: url("../img/settings-gears-svgrepo-com.svg");
+  -webkit-mask-image: url("../img/settings-gears-svgrepo-com.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
-  mask-position:inherit;
+  mask-position: inherit;
 }
 
-.erro-texto{
+.erro-texto {
   width: 27.5em;
   display: flex;
   flex-direction: column;
-  gap: 5rem ;
+  gap: 5rem;
 }
 
-.erro-texto p{
+.erro-texto p {
   color: var(--texto-padrao);
   font-size: 1.25em;
   font-weight: 500;
 }
-
-

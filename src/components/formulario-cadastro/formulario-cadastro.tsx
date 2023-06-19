@@ -16,9 +16,8 @@ type ContentValue = {
 
 type ContentType = 'cadastro' | 'atualizacao'
 
-type Content = Record<ContentType, ContentValue>
 
-const content: Content = {
+const content: Record<ContentType, ContentValue> = {
   cadastro: {
     feedbackMessage: 'Cadastro realizado com sucesso!<br>Confira na <a href="/">lista de registros</a>.',
     buttonLabel: 'Concluir cadastro'
@@ -40,17 +39,17 @@ function FormularioCadastro(props: FormularioCadastroProps) {
 
   return (
     <form className='formulario-cadastro'>
-      <input type='text' className='input-cadastro' placeholder='Nome'/>
-      <input type='text' className='input-cadastro' placeholder='Sobreome'/>
-      <DatePicker 
-        className='input-cadastro' 
+      <input type='text' className='input-cadastro' placeholder='Nome' />
+      <input type='text' className='input-cadastro' placeholder='Sobreome' />
+      <DatePicker
+        className='input-cadastro'
         selected={dataNascimento ? new Date(dataNascimento) : null}
         onChange={handleDateChange}
         dateFormat='dd/MM/yyyy'
-        placeholderText='Data de nascimento'/>
-      <BotaoPadrao>{ content[tipo].buttonLabel }</BotaoPadrao>
-      
-      <p className='texto-cadastro-aviso'>{ ReactHtmlParser(content[tipo].feedbackMessage) }</p>
+        placeholderText='Data de nascimento' />
+      <BotaoPadrao>{content[tipo].buttonLabel}</BotaoPadrao>
+
+      <p className='texto-cadastro-aviso'>{ReactHtmlParser(content[tipo].feedbackMessage)}</p>
     </form>
   )
 }
