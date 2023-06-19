@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { BotaoPadrao } from '../botoes'
 import ReactHtmlParser from 'react-html-parser'
 import DatePicker from 'react-datepicker'

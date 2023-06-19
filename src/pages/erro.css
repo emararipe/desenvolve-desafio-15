@@ -18,8 +18,8 @@
 	animation: gradient 8s ease infinite;
 	height: 28rem;
   width: 27rem;
-  mask-image: url('../../public/img/settings-gears-svgrepo-com.svg');
-  -webkit-mask-image: url('../../public/img/settings-gears-svgrepo-com.svg');
+  mask-image: url('../img/settings-gears-svgrepo-com.svg');
+  -webkit-mask-image: url('../img/settings-gears-svgrepo-com.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position:inherit;
@@ -34,7 +34,7 @@
 
 .erro-texto p{
   color: var(--texto-padrao);
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: 500;
 }
 

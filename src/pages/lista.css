@@ -1,0 +1,5 @@
+.main-lista {
+  background: var(--branco);
+	padding-bottom: 5rem;
+  min-height: 100vh;
+}

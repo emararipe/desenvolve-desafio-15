@@ -1,0 +1,46 @@
+.lista-pessoas{
+  background: none;
+  min-width: 28.125rem;
+  width: 64%;
+}
+
+.lista-pessoas thead{
+  display: none;
+}
+
+.lista-pessoas tbody{
+  display: flex;
+  flex-direction: column;
+  gap: 1.75em;
+}
+
+.card-pessoa{
+  background: var(--fundo-secundario);
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: 1.5em;
+  border-radius: 32px;
+  border: none;
+  padding: 1.25rem 2rem;
+  padding-right: 1.25rem;
+}
+
+.dados-pessoa{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+}
+
+.card-pessoa span{
+  font-weight: 600;
+}
+
+.opcoes-card{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+

@@ -13,6 +13,7 @@
   --destaque-primario-medio: #9d6b2e;
   --destaque-primario-forte: #66344d;
   --destaque-secundario: #A26479;
+  --destaque-secundario-forte: #8c4e63;
 
   --texto-padrao: #894A5F;
   --texto-desfocado: rgba(137, 74, 95, 0.8);
@@ -59,4 +60,14 @@ font-family: var(--fonte-principal);
 
 a:hover {
   color:var(--destaque-link);
+}
+
+.paginas{
+  color: var(--texto-padrao);
+  padding-top: 7.25vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
