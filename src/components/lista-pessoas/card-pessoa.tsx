@@ -12,11 +12,9 @@ function CardPessoa() {
   return (
     <tr className={`card-pessoa ${isSelected ? 'selected-row' : ''}`}
       onClick={handleRowClick}>
-      <div className='dados-pessoa'>
-        <td><span>Nome:</span></td>
-        <td><span>Sobrenome:</span></td>
-        <td><span>Data de nascimento:</span></td>
-      </div>
+      <td><span>Nome:</span>Euteste</td>
+      <td><span>Sobrenome:</span>Testiando</td>
+      <td><span>Data de nascimento:</span>11/11/1111</td>
       <td className='opcoes-card'><BotaoDeletar></BotaoDeletar><BotaoEditar></BotaoEditar></td>
     </tr>
   )

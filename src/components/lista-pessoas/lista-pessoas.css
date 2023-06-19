@@ -17,8 +17,8 @@
 .card-pessoa {
   background: var(--fundo-secundario);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 1.5rem;
   font-size: 1.5em;
   border-radius: 32px;
   border: none;
@@ -32,18 +32,13 @@
   cursor: pointer;
 }
 
-.dados-pessoa {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
 .card-pessoa span {
   font-weight: 600;
 }
 
 .opcoes-card {
   display: flex;
-  flex-direction: column;
-  gap: 0.5em;
+  align-self: flex-end;
+  gap: 1rem;
+  margin-top: -1.15em;
 }
