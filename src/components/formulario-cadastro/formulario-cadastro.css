@@ -33,4 +33,5 @@
 
 .texto-cadastro-aviso a{
   color: var(--texto-padrao);
+  font-weight: bold;
 }

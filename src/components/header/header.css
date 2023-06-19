@@ -2,7 +2,7 @@
 
 header{
   background: var(--fundo-primario);
-  height: 80px;
+  height: var(--header-height);
   padding-left: 24px;
 }
 
@@ -31,7 +31,7 @@ header{
 nav{
   width: 100%;
   max-width: var(--content-range);
-  height: 80px; /* é o mesmo do header */
+  height: var(--header-height);
   margin: 0 auto;
 
   display: flex;
@@ -60,7 +60,7 @@ nav{
 
 .menu-nav-opcao{
   font-size: 24px;
-  line-height: 80px;
+  line-height: var(--header-height);
   font-weight: 500;
   text-decoration: none;
   color: var(--branco);

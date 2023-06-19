@@ -18,3 +18,12 @@ export const TituloHero = styled.h1`
   font-weight: 900;
   font-family: 'Urbanist', sans-serif;
 `
+
+export const TituloErro = styled.h1`
+  font-size: 128px;
+  font-weight: 900;
+  font-family: 'Urbanist', sans-serif;
+  color: var(--destaque-secundario);
+  `
+    
+  

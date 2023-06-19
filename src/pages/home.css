@@ -28,13 +28,13 @@
 }
 
 .chamada-hero{
-  width: 436px;
+  width: 27.25em;
 }
 
 .hero-texto{
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 40px;
 
   font-weight: 500;
