@@ -20,7 +20,7 @@ type Content = Record<ContentType, ContentValue>
 
 const content: Content = {
   cadastro: {
-    feedbackMessage: 'Cadastro realizado com sucesso!<br>clique <a href="/">aqui</a> para visualizar sua lista de resultados.',
+    feedbackMessage: 'Cadastro realizado com sucesso!<br>Confira na <a href="/">lista de registros</a>.',
     buttonLabel: 'Concluir cadastro'
   },
   atualizacao: {
