@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './lista-pessoas.css'
 import { BotaoDeletar, BotaoEditar } from '../botoes'
 
-function CardPessoa() {
+function CardPessoa({ nome, sobrenome, nascimento }: { nome: string, sobrenome: string, nascimento: Date/* talvez seja string também, não sei ainda*/ }) {
   const [isSelected, setIsSelected] = useState(false)
 
   function handleRowClick() {
@@ -12,9 +12,9 @@ function CardPessoa() {
   return (
     <tr className={`card-pessoa ${isSelected ? 'selected-row' : ''}`}
       onClick={handleRowClick}>
-      <td><span>Nome:</span>Euteste</td>
-      <td><span>Sobrenome:</span>Testiando</td>
-      <td><span>Data de nascimento:</span>11/11/1111</td>
+      <td><span>Nome:</span>{nome}</td>
+      <td><span>Sobrenome:</span>{sobrenome}</td>
+      <td><span>Data de nascimento:</span>{nascimento.toString()/*revisão*/}</td>
       <td className='opcoes-card'><BotaoDeletar></BotaoDeletar><BotaoEditar></BotaoEditar></td>
     </tr>
   )

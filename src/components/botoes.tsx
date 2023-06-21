@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import IconEditar from '../img/pencil-edit-svgrepo.svg'
-import IconDeletar from '../img/trash-can-svgrepo.svg'
+import IconEditar from '../assets/img/pencil-edit-svgrepo.svg'
+import IconDeletar from '../assets/img/trash-can-svgrepo.svg'
 
 export const BotaoHero = styled.button`
   background: var(--destaque-primario);
