@@ -1,0 +1,22 @@
+{
+  "pessoasCadastradas": [
+    {
+      "nome": "Manu",
+      "sobrenome": "Araripe",
+      "dataNascimento": "2023-06-20T03:00:00.000Z",
+      "id": 1
+    },
+    {
+      "nome": "Lulu",
+      "sobrenome": "da Pomerania",
+      "dataNascimento": "2023-06-08T03:00:00.000Z",
+      "id": 2
+    },
+    {
+      "nome": "Manu",
+      "sobrenome": "Araripe",
+      "dataNascimento": "2023-05-31T03:00:00.000Z",
+      "id": "6f39d9d5-28a0-4a26-bf04-208b747cccf7"
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './lista-pessoas.css'
 import { BotaoDeletar, BotaoEditar } from '../botoes'
 
-function CardPessoa({ nome, sobrenome, nascimento } : { nome: string, sobrenome: string, nascimento: Date /* talvez seja string também, não sei ainda*/ }) {
+function CardPessoa({ nome, sobrenome, nascimento } : { nome: string, sobrenome: string, nascimento: Date }) {
   const [isSelected, setIsSelected] = useState(false)
 
   function handleRowClick() {

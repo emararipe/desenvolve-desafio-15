@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { BotaoPadrao } from '../botoes'
+import { clienteService } from '../../service/cliente-service'
 import ReactHtmlParser from 'react-html-parser'
 import DatePicker from 'react-datepicker'
+import { v4 as uuidv4 } from 'uuid'
 import './formulario-cadastro.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -58,8 +60,7 @@ function FormularioCadastro(props: FormularioCadastroProps) {
     setFormModel({...formModel})
   }
 
-  const validateForm = () => {
-    // valida se todos os campos foram preenchidos.
+  const validaFormulario = () => {
     if (Object.values(formModel).includes(''))
       return false
 
@@ -69,12 +70,14 @@ function FormularioCadastro(props: FormularioCadastroProps) {
   const handleFormSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault()
 
-    const formIsValid = validateForm()
+    const formIsValid = validaFormulario()
 
     if (formIsValid) {
       setMensagemFeedback(content[tipo].mensagemFeedback)
 
-      // todo: enviar form na api.
+      formModel.id = uuidv4()
+
+      clienteService.cadastraPessoa(formModel)
 
       setFormularioEnviado(true)
 
