@@ -50,12 +50,14 @@ function FormularioCadastro(props: FormularioCadastroProps) {
     setFormModel({...formModel})
   }, [dataNascimento])
 
-  const handleDateChange = (date: Date | null) => {
-    setDataNascimento(date ? date.toISOString() : '')
+  const handleDateChange = (data: Date | null) => {
+    console.log(data)
+    setDataNascimento(data ? data.toISOString() : '')
   }
 
-  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    formModel[e.target.name] = e.target.value
+  const handleTextChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(evento)
+    formModel[evento.target.name] = evento.target.value
 
     setFormModel({...formModel})
   }
@@ -67,8 +69,8 @@ function FormularioCadastro(props: FormularioCadastroProps) {
     return true
   }
 
-  const handleFormSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault()
+  const handleFormSubmit = (evento: React.SyntheticEvent) => {
+    evento.preventDefault()
 
     const formIsValid = validaFormulario()
 

@@ -1,5 +1,7 @@
 export interface Pessoa{
-  nome: String,
-  sobrenome: String,
-  dataNascimento: String
+  nome: string,
+  sobrenome: string,
+  nascimento: Date,
+  id: string
 }
+

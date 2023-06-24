@@ -2,17 +2,17 @@ const baseUrl = 'http://localhost:3001'
 
 
 
-// const listaPessoasCadastradas = async () => {
-//   const resposta = await fetch(`${baseUrl}/pessoasCadastradas`)
+ const listaPessoasCadastradas = async ():Promise<JSON> => {
+   const resposta = await fetch(`${baseUrl}/pessoasCadastradas`)
 
-//   if(resposta.ok){
-//     return resposta.json()
-//   } 
-//     throw new Error('Não foi possível visualizar as pessoas cadastradas.')
+   if(resposta.ok){
+     return resposta.json()
+   } 
+     throw new Error('Não foi possível visualizar as pessoas cadastradas.')
   
-// }
+ }
 
-const cadastraPessoa = async model => {
+const cadastraPessoa = async (model:Record<string, string | null>) => {
   const resposta = await fetch(`${baseUrl}/pessoasCadastradas`, {
     method: "POST",
     headers: {
@@ -28,6 +28,6 @@ const cadastraPessoa = async model => {
 
 
 export const clienteService = {
-  // listaPessoasCadastradas,
+   listaPessoasCadastradas,
   cadastraPessoa
 }
