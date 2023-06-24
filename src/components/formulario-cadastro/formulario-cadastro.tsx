@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BotaoPadrao } from '../botoes'
 import ReactHtmlParser from 'react-html-parser'
 import DatePicker from 'react-datepicker'
@@ -10,53 +10,123 @@ interface FormularioCadastroProps {
 }
 
 type ContentValue = {
-  feedbackMessage: string,
-  buttonLabel: string
+  mensagemFeedback: string,
+  textoBotao: string
 }
 
 type ContentType = 'cadastro' | 'atualizacao'
 
-
 const content: Record<ContentType, ContentValue> = {
   cadastro: {
-    feedbackMessage: 'Cadastro realizado com sucesso!<br>Confira na <a href="/">lista de registros</a>.',
-    buttonLabel: 'Concluir cadastro'
+    mensagemFeedback: 'Cadastro realizado com sucesso!<br>Confira na <a href="/">lista de registros</a>.',
+    textoBotao: 'Concluir cadastro'
   },
   atualizacao: {
-    feedbackMessage: 'Atualização realizada com sucesso!<br>Voltar para <a href="/">lista de registros</a>.',
-    buttonLabel: 'Concluir atualização'
+    mensagemFeedback: 'Atualização realizada com sucesso!<br>Voltar para <a href="/">lista de registros</a>.',
+    textoBotao: 'Concluir atualização'
   }
 }
 
 function FormularioCadastro(props: FormularioCadastroProps) {
   const { tipo } = props
-
   const [dataNascimento, setDataNascimento] = useState('')
+  const [mensagemFeedback, setMensagemFeedback] = useState<string | null>()
+  const [formularioEnviado, setFormularioEnviado] = useState(false)
+  const [formModel, setFormModel] = useState<Record<string, string | null>>({
+    nome: '',
+    sobrenome: '',
+    dataNascimento: ''
+  })
+
+  useEffect(() => {
+    setMensagemFeedback(null)
+  }, [formModel])
+
+  useEffect(() => {
+    formModel.dataNascimento = dataNascimento
+
+    setFormModel({...formModel})
+  }, [dataNascimento])
 
   const handleDateChange = (date: Date | null) => {
-    setDataNascimento(date ? date.toISOString() : ''/* acho que vai virar erro */)
+    setDataNascimento(date ? date.toISOString() : '')
+  }
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    formModel[e.target.name] = e.target.value
+
+    setFormModel({...formModel})
+  }
+
+  const validateForm = () => {
+    // valida se todos os campos foram preenchidos.
+    if (Object.values(formModel).includes(''))
+      return false
+
+    return true
+  }
+
+  const handleFormSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault()
+
+    const formIsValid = validateForm()
+
+    if (formIsValid) {
+      setMensagemFeedback(content[tipo].mensagemFeedback)
+
+      // todo: enviar form na api.
+
+      setFormularioEnviado(true)
+
+      return
+    }
+
+    setMensagemFeedback('Verifique os campos digitados.')
   }
 
   return (
-    <form className='formulario-cadastro'>
-      <label htmlFor='nome'>Nome</label>
-      <input type='text' name='nome' className='input-cadastro' placeholder='Nome' id='nome' required/>
-      <label htmlFor='sobrenome'>Sobrenome</label>
-      <input type='text' name='nome' className='input-cadastro' placeholder='Sobreome' id='sobrenome' required />
-      <label htmlFor='nascimento'>Data de nascimento</label>
-      <DatePicker
-        className='input-cadastro'
-        name='nascimento'
-        selected={dataNascimento ? new Date(dataNascimento) : null}
-        onChange={handleDateChange}
-        dateFormat='dd/MM/yyyy'
-        placeholderText='Data de nascimento' 
-        id='nascimento'
-        required/>
-      <BotaoPadrao>{content[tipo].buttonLabel}</BotaoPadrao>
+    <>
+      {!formularioEnviado && (
+        <form
+          className='formulario-cadastro'
+          onSubmit={handleFormSubmit}
+        >
+          <input
+            type='text'
+            className='input-cadastro'
+            placeholder='Nome'
+            name='nome'
+            onChange={handleTextChange}
+          />
 
-      <p className='texto-cadastro-aviso'>{ReactHtmlParser(content[tipo].feedbackMessage)}</p>
-    </form>
+          <input
+            type='text'
+            className='input-cadastro'
+            placeholder='Sobrenome'
+            name='sobrenome'
+            onChange={handleTextChange}
+          />
+
+          <DatePicker
+            className='input-cadastro'
+            selected={dataNascimento ? new Date(dataNascimento) : null}
+            onChange={handleDateChange}
+            dateFormat='dd/MM/yyyy'
+            placeholderText='Data de nascimento'
+          />
+
+          <BotaoPadrao>
+            {content[tipo].textoBotao}
+          </BotaoPadrao>
+        </form>
+      )}
+
+      {mensagemFeedback && (
+        <p className='texto-cadastro-aviso'>
+          {ReactHtmlParser(mensagemFeedback)}
+        </p>
+      )}
+    </>
   )
 }
 

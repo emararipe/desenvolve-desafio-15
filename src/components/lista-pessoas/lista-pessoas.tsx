@@ -13,8 +13,8 @@ function ListaPessoas() {
         </tr>
       </thead>
       <tbody>
-        <CardPessoa />
-        <CardPessoa />
+        {/* <CardPessoa />
+        <CardPessoa /> */}
       </tbody>
     </table>
   )
