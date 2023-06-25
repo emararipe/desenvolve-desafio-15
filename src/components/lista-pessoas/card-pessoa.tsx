@@ -7,31 +7,32 @@ import './lista-pessoas.css'
 
 moment.locale('pt-br')
 
-interface Props extends Pessoa{
+interface Props {
+  pessoa: Pessoa
   setListaPessoas: React.Dispatch<React.SetStateAction<Pessoa[]>>
 }
 
-function CardPessoa({ id ,nome, sobrenome, dataNascimento, setListaPessoas } : Props) {
-  const dataFormatada = moment(dataNascimento).format('L')
+function CardPessoa({ pessoa, setListaPessoas } : Props) {
+  const dataFormatada = moment(pessoa.dataNascimento).format('L')
 
   async function deletaPessoa() {
-    const confirmacao = confirm(`Deseja remover o cadastro de ${nome} ${sobrenome}?`)
+    const confirmacao = confirm(`Deseja remover o cadastro de ${pessoa.nome} ${pessoa.sobrenome}?`)
 
     if(confirmacao) {
-      await clienteService.excluirPessoa(id)
+      await clienteService.excluirPessoa(pessoa.id)
       const pessoas = await clienteService.listaPessoasCadastradas()
       setListaPessoas(pessoas)
     }
   }
 
   function editarPessoa() {
-    clienteService.excluirPessoa(id)
+    clienteService.excluirPessoa(pessoa.id)
   }
 
   return (
     <tr className='card-pessoa'>
-      <td><span>Nome: </span>{nome}</td>
-      <td><span>Sobrenome: </span>{sobrenome}</td>
+      <td><span>Nome: </span>{pessoa.nome}</td>
+      <td><span>Sobrenome: </span>{pessoa.sobrenome}</td>
       <td><span>Data de nascimento: </span>{dataFormatada}</td>
       <td className='opcoes-card'><BotaoDeletar onClick={deletaPessoa}></BotaoDeletar><BotaoEditar onClick={editarPessoa}></BotaoEditar></td>
     </tr>

@@ -28,11 +28,8 @@ function ListaPessoas() {
       <tbody>
         {listaPessoas.map((pessoa) => (
           <CardPessoa
-            id={String(pessoa.id)}
-            key={String(pessoa.id)}
-            nome={pessoa.nome}
-            sobrenome={pessoa.sobrenome}
-            dataNascimento={pessoa.dataNascimento}
+            key={pessoa.id}
+            pessoa= {pessoa}
             setListaPessoas={setListaPessoas}
           />)
         )}

@@ -8,7 +8,7 @@ import './formulario-cadastro.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
 interface FormularioCadastroProps {
-  tipo: ContentType;
+  tipo: ContentType
 }
 
 type ContentValue = {
@@ -32,22 +32,28 @@ const content: Record<ContentType, ContentValue> = {
 function FormularioCadastro(props: FormularioCadastroProps) {
   const { tipo } = props
   const [dataNascimento, setDataNascimento] = useState('')
-  const [mensagemFeedback, setMensagemFeedback] = useState<string | null>()
+  const [mensagemFeedback, setMensagemFeedback] = useState<string>('')
   const [formularioEnviado, setFormularioEnviado] = useState(false)
-  const [formModel, setFormModel] = useState<Record<string, string | null>>({
+  const [formModel, setFormModel] = useState<Record<string, string>>({
     nome: '',
     sobrenome: '',
     dataNascimento: ''
   })
+  const [erros, setErros] = useState<Record<string, string[]>>({
+    nome: [''],
+    sobrenome: [''],
+    dataNascimento: ['']
+  })
+
 
   useEffect(() => {
-    setMensagemFeedback(null)
+    setMensagemFeedback('')
   }, [formModel])
 
   useEffect(() => {
     formModel.dataNascimento = dataNascimento
 
-    setFormModel({...formModel})
+    setFormModel({ ...formModel })
   }, [dataNascimento])
 
   const handleDateChange = (data: Date | null) => {
@@ -55,18 +61,45 @@ function FormularioCadastro(props: FormularioCadastroProps) {
   }
 
   const handleTextChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(evento)
-    formModel[evento.target.name] = evento.target.value
+    const { name, value } = evento.target
 
-    setFormModel({...formModel})
+    formModel[name] = value.trim()
+
+    setFormModel({ ...formModel })
+
+    const novosErros = { ...erros }
+    novosErros[name] = []
+    setErros(novosErros)
   }
 
   const validaFormulario = () => {
-    if (Object.values(formModel).includes(''))
-      return false
+    const novosErros: Record<string, string[]> = {}
 
-    return true
+    if (formModel.nome.trim() === '') {
+      novosErros.nome = ['O campo nome é obrigatório.']
+    } else if (formModel.nome.length < 3 || formModel.nome.length > 35) {
+      novosErros.nome = ['O nome deve ter entre 3 e 35 caracteres.']
+    } else if (!formModel.nome.match(/^[a-zA-ZÀ-ÿ\s]+$/)) {
+      novosErros.nome = ['Não é permitido usar caracteres especiais, números ou símbolos (Ex.:~!@#^&*(_-).']
+    }
+
+    if (formModel.sobrenome.trim() === '') {
+      novosErros.sobrenome = ['O campo sobrenome é obrigatório.']
+    } else if (formModel.sobrenome.length < 3 || formModel.sobrenome.length > 65) {
+      novosErros.sobrenome = ['O sobrenome deve ter entre 3 e 35 caracteres.']
+    } else if (!formModel.sobrenome.match(/^[a-zA-ZÀ-ÿ\s]+$/)) {
+      novosErros.sobrenome = ['Não é permitido usar caracteres especiais, números ou símbolos (Ex.:~!@#$%^&*)_+-).']
+    }
+
+    if (formModel.dataNascimento.trim() === '') {
+      novosErros.dataNascimento = ['O campo data de nascimento é obrigatório.']
+    }
+
+    setErros(novosErros)
+
+    return Object.keys(novosErros).length === 0
   }
+
 
   const handleFormSubmit = (evento: React.SyntheticEvent) => {
     evento.preventDefault()
@@ -85,7 +118,6 @@ function FormularioCadastro(props: FormularioCadastroProps) {
       return
     }
 
-    setMensagemFeedback('Verifique os campos digitados.')
   }
 
   return (
@@ -102,6 +134,9 @@ function FormularioCadastro(props: FormularioCadastroProps) {
             name='nome'
             onChange={handleTextChange}
           />
+          {erros.nome && erros.nome.map((erro, index) => (
+            <p key={index} className='texto-erro'>{erro}</p>
+          ))}
 
           <input
             type='text'
@@ -110,6 +145,9 @@ function FormularioCadastro(props: FormularioCadastroProps) {
             name='sobrenome'
             onChange={handleTextChange}
           />
+          {erros.sobrenome && erros.sobrenome.map((erro, index) => (
+            <p key={index} className='texto-erro'>{erro}</p>
+          ))}
 
           <DatePicker
             className='input-cadastro'
@@ -118,14 +156,17 @@ function FormularioCadastro(props: FormularioCadastroProps) {
             dateFormat='dd/MM/yyyy'
             placeholderText='Data de nascimento'
           />
+          {erros.dataNascimento && erros.dataNascimento.map((erro, index) => (
+            <p key={index} className='texto-erro'>{erro}</p>
+          ))}
 
-          <BotaoPadrao>
+          <BotaoPadrao className='botao-formulario'>
             {content[tipo].textoBotao}
           </BotaoPadrao>
         </form>
       )}
 
-      {mensagemFeedback && (
+      {(
         <p className='texto-cadastro-aviso'>
           {ReactHtmlParser(mensagemFeedback)}
         </p>
