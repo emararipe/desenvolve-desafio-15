@@ -24,12 +24,6 @@
   border: none;
   padding: 1.25rem 2rem;
   padding-right: 1.25rem;
-  cursor: pointer;
-}
-
-.card-pessoa.selected-row{
-  background: var(--fundo-secundario-destaque);
-  cursor: pointer;
 }
 
 .card-pessoa span {

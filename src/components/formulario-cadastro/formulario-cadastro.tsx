@@ -51,7 +51,6 @@ function FormularioCadastro(props: FormularioCadastroProps) {
   }, [dataNascimento])
 
   const handleDateChange = (data: Date | null) => {
-    console.log(data)
     setDataNascimento(data ? data.toISOString() : '')
   }
 

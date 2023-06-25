@@ -1,7 +1,7 @@
 export interface Pessoa{
   nome: string,
   sobrenome: string,
-  nascimento: Date,
+  dataNascimento: string,
   id: string
 }
 

@@ -50,6 +50,7 @@ nav {
   width: 164px;
   text-align: center;
   background: var(--destaque-primario-suave);
+  cursor: pointer;
 
   &:hover {
     background: var(--destaque-primario-medio);
