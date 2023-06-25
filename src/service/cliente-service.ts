@@ -1,8 +1,8 @@
-import { FontDownloadOffSharp } from "@mui/icons-material"
 import axios from "axios"
+import { Pessoa } from "../interfaces/pessoa"
 const baseUrl = "http://localhost:3001"
 
-const listaPessoasCadastradas = async (): Promise<JSON> => {
+const listaPessoasCadastradas = async (): Promise<Pessoa[]> => {
   try {
     const resposta = await axios.get(`${baseUrl}/pessoasCadastradas`)
     const dados = resposta.data

@@ -1,15 +1,14 @@
-import { useEffect, useState, useLayoutEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { clienteService } from '../../service/cliente-service'
 import { Pessoa } from '../../interfaces/pessoa'
 import CardPessoa from './card-pessoa'
 import './lista-pessoas.css'
 
 function ListaPessoas() {
-  const [listaPessoas, setListaPessoas] = useState<Pessoa[]>([])
-  const buscarDados:Pessoa[] = async () => {
-    const dadosPessoasJSON = await clienteService.listaPessoasCadastradas()
-    const dadosPessoasString = JSON.stringify(dadosPessoasJSON)
-    const dadosPessoas:Pessoa[] = JSON.parse(dadosPessoasString)
+  const [listaPessoas, setListaPessoas] = useState<Pessoa[]> ([])
+
+  const buscarDados = async () => {
+    const dadosPessoas = await clienteService.listaPessoasCadastradas()
     setListaPessoas(dadosPessoas)
   }
 
@@ -34,7 +33,7 @@ function ListaPessoas() {
             nome={pessoa.nome}
             sobrenome={pessoa.sobrenome}
             dataNascimento={pessoa.dataNascimento}
-            buscarDados={buscarDados}
+            setListaPessoas={setListaPessoas}
           />)
         )}
       </tbody>
