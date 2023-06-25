@@ -6,14 +6,14 @@ import './lista-pessoas.css'
 
 function ListaPessoas() {
   const [listaPessoas, setListaPessoas] = useState<Pessoa[]>([])
+  const buscarDados:Pessoa[] = async () => {
+    const dadosPessoasJSON = await clienteService.listaPessoasCadastradas()
+    const dadosPessoasString = JSON.stringify(dadosPessoasJSON)
+    const dadosPessoas:Pessoa[] = JSON.parse(dadosPessoasString)
+    setListaPessoas(dadosPessoas)
+  }
 
   useEffect(() => {
-    async function buscarDados() {
-      const dadosPessoasJSON = await clienteService.listaPessoasCadastradas()
-      const dadosPessoasString = JSON.stringify(dadosPessoasJSON)
-      const dadosPessoas = JSON.parse(dadosPessoasString)
-      setListaPessoas(dadosPessoas)
-    }
     buscarDados()
   }, [])
 
@@ -29,10 +29,12 @@ function ListaPessoas() {
       <tbody>
         {listaPessoas.map((pessoa) => (
           <CardPessoa
+            id={String(pessoa.id)}
             key={String(pessoa.id)}
             nome={pessoa.nome}
             sobrenome={pessoa.sobrenome}
             dataNascimento={pessoa.dataNascimento}
+            buscarDados={buscarDados}
           />)
         )}
       </tbody>
