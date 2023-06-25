@@ -28,7 +28,7 @@ const cadastraPessoa = async (model: Record<string, string | null>) => {
   throw new Error("Não foi possível realizar o cadastro")
 }
 
-const excluirPessoa = async (id: string) => {
+const excluiPessoa = async (id: string) => {
   const resposta = await fetch(`${baseUrl}/pessoasCadastradas/${id}`, {
     method: "DELETE",
   })
@@ -38,8 +38,34 @@ const excluirPessoa = async (id: string) => {
   throw new Error("Não foi possível excluir o cliente")
 }
 
+const detalhaPessoa = async (id: string) => {
+  const resposta = await fetch(`${baseUrl}/pessoasCadastradas/${id}`);
+  return await resposta.json();
+}
+  
+const atualizarPessoa = async (pessoa: Pessoa) => {
+  const resposta = await fetch(`${baseUrl}//pessoasCadastradas/${pessoa.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      nome: pessoa.nome,
+      sobrenome: pessoa.sobrenome,
+      dataNascimento: pessoa.dataNascimento
+    })
+  });
+
+  if(resposta.ok){
+    return resposta.json()
+  } 
+    throw new Error('Não foi possível criar um cliente')
+}
+
 export const clienteService = {
   listaPessoasCadastradas,
   cadastraPessoa,
-  excluirPessoa,
+  excluiPessoa,
+  detalhaPessoa,
+  atualizarPessoa,
 }

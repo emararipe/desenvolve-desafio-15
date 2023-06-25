@@ -36,7 +36,7 @@ export const BotaoDeletar = styled.button`
   height: 2.75em;
   border-radius: 2.75em;
   border: none;
-  
+  cursor: pointer;
 `
 
 export const BotaoEditar = styled.button`
@@ -49,7 +49,7 @@ export const BotaoEditar = styled.button`
   height: 2.75em;
   border-radius: 2.75em;
   border: none;
- 
+  cursor: pointer;
 `
 
 

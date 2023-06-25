@@ -7,6 +7,7 @@ import { v4 as uuidv4 } from 'uuid'
 import './formulario-cadastro.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
+
 interface FormularioCadastroProps {
   tipo: ContentType
 }
@@ -39,6 +40,7 @@ function FormularioCadastro(props: FormularioCadastroProps) {
     sobrenome: '',
     dataNascimento: ''
   })
+
   const [erros, setErros] = useState<Record<string, string[]>>({
     nome: [''],
     sobrenome: [''],

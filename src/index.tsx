@@ -19,7 +19,7 @@ root.render(
         <Route path="/cadastro" Component={Cadastro} />
         <Route path="/lista" Component={Lista} />
         <Route path='/error' Component={Erro} />
-        <Route path="/atualiza_cadastro" Component={AtualizacaoCadastro} />
+        <Route path="/atualiza_cadastro/:id" Component={AtualizacaoCadastro} />
       </Routes>
     </Router>
   </StrictMode>
