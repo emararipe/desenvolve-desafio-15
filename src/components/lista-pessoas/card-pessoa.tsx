@@ -29,7 +29,7 @@ function CardPessoa({ pessoa, setListaPessoas } : Props) {
       setListaPessoas(pessoas)
     }
   }
-
+ 
   return (
     <tr className='card-pessoa'>
       <td><span>Nome: </span>{pessoa.nome}</td>

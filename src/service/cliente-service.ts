@@ -38,28 +38,32 @@ const excluiPessoa = async (id: string) => {
   throw new Error("Não foi possível excluir o cliente")
 }
 
-const detalhaPessoa = async (id: string) => {
-  const resposta = await fetch(`${baseUrl}/pessoasCadastradas/${id}`);
-  return await resposta.json();
+const detalhaPessoa = async (id: string | undefined) => {
+  const resposta = await axios.get(`${baseUrl}/pessoasCadastradas/${id}`)
+  const dados = resposta.data
+  return dados
 }
-  
-const atualizarPessoa = async (pessoa: Pessoa) => {
-  const resposta = await fetch(`${baseUrl}//pessoasCadastradas/${pessoa.id}`, {
+
+const atualizaPessoa = async (
+  pessoa: Record<string, string>,
+  id: string | undefined
+) => {
+  const resposta = await fetch(`${baseUrl}/pessoasCadastradas/${id}`, {
     method: "PUT",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       nome: pessoa.nome,
       sobrenome: pessoa.sobrenome,
-      dataNascimento: pessoa.dataNascimento
-    })
-  });
+      dataNascimento: pessoa.dataNascimento,
+    }),
+  })
 
-  if(resposta.ok){
+  if (resposta.ok) {
     return resposta.json()
-  } 
-    throw new Error('Não foi possível criar um cliente')
+  }
+  throw new Error("Não foi possível criar um cliente")
 }
 
 export const clienteService = {
@@ -67,5 +71,5 @@ export const clienteService = {
   cadastraPessoa,
   excluiPessoa,
   detalhaPessoa,
-  atualizarPessoa,
+  atualizaPessoa,
 }

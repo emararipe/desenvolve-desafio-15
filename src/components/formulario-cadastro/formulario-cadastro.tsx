@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react'
-import { BotaoPadrao } from '../botoes'
-import { clienteService } from '../../service/cliente-service'
+import { useState, useEffect, useLayoutEffect } from 'react'
+import { useParams } from 'react-router'
+import { v4 as uuidv4 } from 'uuid'
 import ReactHtmlParser from 'react-html-parser'
 import DatePicker from 'react-datepicker'
-import { v4 as uuidv4 } from 'uuid'
-import './formulario-cadastro.css'
 import 'react-datepicker/dist/react-datepicker.css'
+import moment from 'moment'
+import 'moment/locale/pt-br'
+import { BotaoPadrao } from '../botoes'
+import { clienteService } from '../../service/cliente-service'
+import { Pessoa } from '../../interfaces/pessoa'
+import './formulario-cadastro.css'
 
 
 interface FormularioCadastroProps {
@@ -21,11 +25,11 @@ type ContentType = 'cadastro' | 'atualizacao'
 
 const content: Record<ContentType, ContentValue> = {
   cadastro: {
-    mensagemFeedback: 'Cadastro realizado com sucesso!<br>Confira na <a href="/">lista de registros</a>.',
+    mensagemFeedback: 'Cadastro realizado com sucesso!<br>Confira na <a href="/lista">lista de registros</a>.',
     textoBotao: 'Concluir cadastro'
   },
   atualizacao: {
-    mensagemFeedback: 'Atualização realizada com sucesso!<br>Voltar para <a href="/">lista de registros</a>.',
+    mensagemFeedback: 'Atualização realizada com sucesso!<br>Voltar para <a href="/lista">lista de registros</a>.',
     textoBotao: 'Concluir atualização'
   }
 }
@@ -35,18 +39,41 @@ function FormularioCadastro(props: FormularioCadastroProps) {
   const [dataNascimento, setDataNascimento] = useState('')
   const [mensagemFeedback, setMensagemFeedback] = useState<string>('')
   const [formularioEnviado, setFormularioEnviado] = useState(false)
+  const [pessoaCadastrada, setPessoaCadastrada] = useState<Pessoa | null>(null)
   const [formModel, setFormModel] = useState<Record<string, string>>({
     nome: '',
     sobrenome: '',
     dataNascimento: ''
   })
 
+  const { idPessoaCadastrada } = useParams()
+
+  useLayoutEffect(() => {
+    const pegaPessoaCadastrada = async () => {
+      const dadosPessoaCadastrada = await clienteService.detalhaPessoa(idPessoaCadastrada)
+      setPessoaCadastrada(dadosPessoaCadastrada)
+    }
+
+    if (tipo === 'atualizacao') {
+      pegaPessoaCadastrada()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (tipo === 'atualizacao' && pessoaCadastrada) {
+      setFormModel({
+        nome: pessoaCadastrada.nome,
+        sobrenome: pessoaCadastrada.sobrenome,
+        dataNascimento: pessoaCadastrada.dataNascimento
+      })
+    }
+  }, [pessoaCadastrada])
+
   const [erros, setErros] = useState<Record<string, string[]>>({
     nome: [''],
     sobrenome: [''],
     dataNascimento: ['']
   })
-
 
   useEffect(() => {
     setMensagemFeedback('')
@@ -111,9 +138,13 @@ function FormularioCadastro(props: FormularioCadastroProps) {
     if (formIsValid) {
       setMensagemFeedback(content[tipo].mensagemFeedback)
 
-      formModel.id = uuidv4()
+      if (tipo === 'atualizacao') {
+        clienteService.atualizaPessoa(formModel, idPessoaCadastrada)
+      } else {
+        formModel.id = uuidv4()
 
-      clienteService.cadastraPessoa(formModel)
+        clienteService.cadastraPessoa(formModel)
+      }
 
       setFormularioEnviado(true)
 
@@ -135,6 +166,7 @@ function FormularioCadastro(props: FormularioCadastroProps) {
             placeholder='Nome'
             name='nome'
             onChange={handleTextChange}
+            value={formModel.nome}
           />
           {erros.nome && erros.nome.map((erro, index) => (
             <p key={index} className='texto-erro'>{erro}</p>
@@ -146,6 +178,7 @@ function FormularioCadastro(props: FormularioCadastroProps) {
             placeholder='Sobrenome'
             name='sobrenome'
             onChange={handleTextChange}
+            value={formModel.sobrenome}
           />
           {erros.sobrenome && erros.sobrenome.map((erro, index) => (
             <p key={index} className='texto-erro'>{erro}</p>
@@ -156,6 +189,7 @@ function FormularioCadastro(props: FormularioCadastroProps) {
             selected={dataNascimento ? new Date(dataNascimento) : null}
             onChange={handleDateChange}
             dateFormat='dd/MM/yyyy'
+            value={moment(formModel.dataNascimento).format('L')}
             placeholderText='Data de nascimento'
           />
           {erros.dataNascimento && erros.dataNascimento.map((erro, index) => (
