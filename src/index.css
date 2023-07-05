@@ -59,7 +59,10 @@
 a:hover {
   color: var(--destaque-link);
 }
-
+.layout{
+  display: flex;
+  flex-direction: column;
+}
 .paginas {
   color: var(--texto-padrao);
   padding-top: 7.25vh;
