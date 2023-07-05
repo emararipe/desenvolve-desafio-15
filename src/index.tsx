@@ -15,11 +15,11 @@ root.render(
   <StrictMode>
     <Router>
       <Routes>
-        <Route path="/" Component={Home} />
-        <Route path="/cadastro" Component={Cadastro} />
-        <Route path="/lista" Component={Lista} />
-        <Route path='/error' Component={Erro} />
-        <Route path="/atualiza_cadastro/:idPessoaCadastrada" Component={AtualizacaoCadastro} />
+        <Route path="/" element={Home} />
+        <Route path="/cadastro" element={Cadastro} />
+        <Route path="/lista" element={Lista} />
+        <Route path='/error' element={Erro} />
+        <Route path="/atualiza_cadastro/:idPessoaCadastrada" element={AtualizacaoCadastro} />
       </Routes>
     </Router>
   </StrictMode>
